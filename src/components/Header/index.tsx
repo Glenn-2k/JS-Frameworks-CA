@@ -1,12 +1,12 @@
-import logo from "../../assets/logowhite.png";
+import Logo from "../Logo";
+import Nav from "../Nav";
 
 const Header = () => {
   return (
-    <header className="bg-gray-800">
-      <nav className="flex justify-between">
-        <img src={logo} className="h-16 w-auto m-4" alt="logo image" />
-        <div className="Cart">Cart here</div>
-      </nav>
+    <header className="bg-gray-800 sticky top-0 z-20 mx-auto w-full flex justify-between ">
+      <Logo />
+      <Nav />
+      <div className="Cart">Cart here</div>
     </header>
   );
 };
