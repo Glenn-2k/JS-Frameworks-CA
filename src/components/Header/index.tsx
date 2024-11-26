@@ -1,3 +1,4 @@
+import { FaShoppingCart } from "react-icons/fa";
 import Logo from "../Logo";
 import Nav from "../Nav";
 
@@ -6,7 +7,7 @@ const Header = () => {
     <header className="bg-gray-800 sticky top-0 z-[20] mx-auto w-full flex justify-between items-center ">
       <Logo />
       <Nav />
-      <div className="Cart">Cart here</div>
+      <FaShoppingCart className="text-white text-xl m-4" />
     </header>
   );
 };
