@@ -3,33 +3,24 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
-const activeClassName = "text-gray-400";
-const activeStyleCallBack = ({ isActive }: { isActive: Boolean }) =>
-  isActive ? activeClassName : "navlink";
+const activeClassName = "text-gray-400 mb-4 md:mb-0`";
+const getNavLinkClass = (isActive: boolean) =>
+  isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0";
 
 const NavLinks = () => {
   return (
     <>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0"
-        }
-        to="/"
-      >
+      <NavLink className={({ isActive }) => getNavLinkClass(isActive)} to="/">
         Home
       </NavLink>
       <NavLink
-        className={({ isActive }) =>
-          isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0"
-        }
+        className={({ isActive }) => getNavLinkClass(isActive)}
         to="/contact"
       >
         Contact
       </NavLink>
       <NavLink
-        className={({ isActive }) =>
-          isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0"
-        }
+        className={({ isActive }) => getNavLinkClass(isActive)}
         to="/cart"
       >
         Cart
