@@ -3,7 +3,7 @@ import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
-const activeClassName = "text-gray-400 mb-4 md:mb-0`";
+const activeClassName = "text-gray-400 mb-4 md:mb-0";
 const getNavLinkClass = (isActive: boolean) =>
   isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0";
 
