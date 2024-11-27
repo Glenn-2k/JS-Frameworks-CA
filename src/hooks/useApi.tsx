@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { set } from "react-hook-form";
 
 function useApi<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
