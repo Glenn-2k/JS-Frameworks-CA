@@ -19,7 +19,7 @@ function useApi<T>(url: string) {
 
         const json = await response.json();
 
-        setData(json);
+        setData(json.data);
       } catch (error) {
         console.error("Error fetching data", error);
         setIsError(true);
