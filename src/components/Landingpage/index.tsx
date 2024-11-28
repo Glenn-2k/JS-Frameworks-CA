@@ -16,8 +16,10 @@ const Landingpage = () => {
   if (isLoading) return <p>Loading products...</p>;
   if (isError) return <p>Failed to load products. Please try again later.</p>;
 
-  const filteredProducts = products?.filter((product) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredProducts = products?.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -27,14 +29,13 @@ const Landingpage = () => {
         type="text"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} // Update state on input
-        placeholder="Search products..."
-        className="border p-2 rounded mb-4 w-full"
+        placeholder="Search products.."
+        className="border p-2 rounded mb-4 w-1/3"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product.id} products={product} />
-          ))}
+        {filteredProducts?.map((product) => (
+          <ProductCard key={product.id} products={product} />
+        ))}
       </div>
     </div>
   );
