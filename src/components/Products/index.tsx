@@ -4,7 +4,7 @@ const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4">
+    <div className="bg-white shadow-md flex flex-col h-full rounded-lg p-4">
       <img
         src={products.image.url}
         alt={products.title}
@@ -20,9 +20,14 @@ const ProductCard = ({ products }: { products: Products }) => {
           Save {discount} NOK! (Original: {products.price} NOK)
         </p>
       )}
-      <button className="mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
-        View Product
-      </button>
+      <div className="flex space-x-4 mt-auto justify-center">
+        <button className="mt-4 w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+          View Product
+        </button>
+        <button className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950">
+          Add to cart
+        </button>
+      </div>
     </div>
   );
 };
