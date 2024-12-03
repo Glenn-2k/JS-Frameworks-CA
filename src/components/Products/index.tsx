@@ -1,4 +1,5 @@
 import { Products } from "../Types/products.d.tsx";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
@@ -21,9 +22,11 @@ const ProductCard = ({ products }: { products: Products }) => {
         </p>
       )}
       <div className="flex space-x-4 mt-auto justify-center">
-        <button className="mt-4 w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
-          View Product
-        </button>
+        <Link to={`/products/${products.id}`}>
+          <button className="mt-4 w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+            View Product
+          </button>
+        </Link>
         <button className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950">
           Add to cart
         </button>
