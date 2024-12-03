@@ -22,10 +22,11 @@ const ProductCard = ({ products }: { products: Products }) => {
         </p>
       )}
       <div className="flex space-x-4 mt-auto justify-center">
-        <Link to={`/products/${products.id}`} className="w-1/2 block">
-          <button className="mt-4  bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
-            View Product
-          </button>
+        <Link
+          to={`/products/${products.id}`}
+          className="mt-4 w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 text-center"
+        >
+          View Product
         </Link>
         <button className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950">
           Add to cart
