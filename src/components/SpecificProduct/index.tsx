@@ -32,9 +32,16 @@ function SpecificProduct() {
         Price: {products.discountedPrice} NOK
       </p>
       <p className="text-sm text-gray-600">{products.description}</p>
-      <p className="text-sm text-gray-600">Category: {products.id || "N/A"}</p>
-      <p className="text-sm text-gray-600">Rating: {products.rating}</p>
-      <p className="text-sm text-gray-600">Stock: {products.title || "N/A"}</p>
+      <p className="text-sm text-gray-600 font-bold">
+        Category: <span className="font-normal">{products.id || "N/A"} </span>
+      </p>
+      <p className="text-sm text-gray-600 font-bold">
+        Rating: <span className="font-normal">{products.rating}</span>
+      </p>
+      <p className="text-sm text-gray-600 font-bold ">
+        Tags:{" "}
+        <span className="font-thin"> {products.tags.join(", ") || "N/A"} </span>
+      </p>
     </div>
   );
 }
