@@ -17,9 +17,7 @@ const ProductCard = ({ products }: { products: Products }) => {
         Price: {products.discountedPrice.toFixed(2)} NOK
       </p>
       {discount > 0 && (
-        <p className="text-sm text-red-500">
-          Save {discount} NOK! (Original: {products.price.toFixed(2)} NOK)
-        </p>
+        <p className="text-sm text-red-500">Save {discount.toFixed(2)} NOK!</p>
       )}
       <div className="flex space-x-4 mt-auto justify-center">
         <Link
