@@ -1,34 +1,26 @@
 import { create } from "zustand";
+import CartStore from "../components/Types/CartStore.d";
+import { Products } from "../components/Types/products.d";
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
+const useCartStore = create<CartStore>((set) => ({
+  items: [],
+  count: 0,
 
-interface CartState {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
-  clearCart: () => void;
-}
-
-const useCartStore = create<CartState>((set) => ({
-  cart: [],
-  addToCart: (item) =>
+  addToCart: (products: Products) =>
     set((state) => {
-      const existingProduct = state.cart.find((item) => item.id === item.id);
+      const existingProduct = state.items.find(
+        (item) => item.id === products.id
+      );
       if (existingProduct) {
         return {
-          cart: state.cart.map((item) =>
+          cart: state.items.map((item) =>
             item.id === item.id
               ? { ...item, quantity: item.quantity + 1 }
               : item
           ),
         };
       }
-      return { cart: [...state.cart, { ...item, quantity: 1 }] };
+      return { cart: [...state.items, { ...items, quantity: 1 }] };
     }),
 
   removeFromCart: (id: string) =>
