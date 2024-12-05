@@ -1,8 +1,11 @@
 import { Products } from "../Types/products.d.tsx";
 import { Link } from "react-router-dom";
+import useCartStore from "../../Store/CartStore.tsx";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
+
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div className="bg-white shadow-md flex flex-col h-full rounded-lg p-4">
@@ -26,7 +29,17 @@ const ProductCard = ({ products }: { products: Products }) => {
         >
           View Product
         </Link>
-        <button className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950">
+        <button
+          onClick={() =>
+            addToCart({
+              id: products.id,
+              name: products.title,
+              price: products.discountedPrice,
+              quantity: 1,
+            })
+          }
+          className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950"
+        >
           Add to cart
         </button>
       </div>
