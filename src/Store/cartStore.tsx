@@ -6,7 +6,7 @@ interface CartItem extends Products {
   quantity: number;
 }
 
-interface CartStore {
+interface CartStoreType {
   items: CartItem[];
   count: number;
   addToCart: (product: Products) => void;
@@ -16,7 +16,7 @@ interface CartStore {
   clearCart: () => void;
 }
 
-export const useCartStore = create<CartStore>()(
+export const useCartStore = create<CartStoreType>()(
   persist(
     (set, get) => ({
       items: [],
