@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+import CartIcon from "../CartIcon";
 
 const activeClassName = "text-gray-400 mb-4 md:mb-0";
 const getNavLinkClass = (isActive: boolean) =>
@@ -23,9 +23,8 @@ const NavLinks = () => {
         className={({ isActive }) => getNavLinkClass(isActive)}
         to="/cart"
       >
-        Cart
+        <CartIcon />
       </NavLink>
-      <FaShoppingCart className="mb-4 md:mb-0 text-white text-xl" />
     </>
   );
 };

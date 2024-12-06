@@ -1,11 +1,23 @@
 import { Products } from "./products.d";
 
-interface CartStore {
-  items: Products[];
-  count: number;
-  addToCart: (Products: Products) => void;
-  removeFromCart: (ProductId: string) => void;
-  clearCart: () => void;
+export interface Review {
+  id: string;
+  username: string;
+  rating: number;
+  comment: string;
 }
 
-export default CartStore;
+export interface Products {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  discountedPrice: number;
+  image: {
+    url: string;
+    alt: string;
+  };
+  rating: number;
+  tags: string[];
+  reviews: Review[];
+}
