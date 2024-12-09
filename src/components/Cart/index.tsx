@@ -1,4 +1,5 @@
 import { useCartStore } from "../../Store/cartStore";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const {
@@ -8,6 +9,17 @@ const Cart = () => {
     removeFromCart,
     clearCart,
   } = useCartStore();
+
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    if (items.length === 0) {
+      alert("Your cart is empty! Add items before proceeding to checkout.");
+      return;
+    }
+
+    navigate("/checkout");
+  };
 
   const total = items.reduce(
     (sum, item) => sum + item.discountedPrice * item.quantity,
@@ -69,7 +81,7 @@ const Cart = () => {
               Clear Cart
             </button>
             <button
-              onClick={clearCart}
+              onClick={handleCheckout}
               className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
             >
               Proceed to checkout
