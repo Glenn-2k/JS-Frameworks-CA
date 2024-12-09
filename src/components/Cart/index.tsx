@@ -61,12 +61,20 @@ const Cart = () => {
             <p>Total:</p>
             <p>{total.toFixed(2)} NOK</p>
           </div>
-          <button
-            onClick={clearCart}
-            className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-          >
-            Clear Cart
-          </button>
+          <div className="flex justify-between">
+            <button
+              onClick={clearCart}
+              className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+            >
+              Clear Cart
+            </button>
+            <button
+              onClick={clearCart}
+              className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+            >
+              Proceed to checkout
+            </button>
+          </div>
         </>
       )}
     </div>
