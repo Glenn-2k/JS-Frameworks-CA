@@ -2,9 +2,12 @@ import { useParams } from "react-router-dom";
 import { BASE_URL } from "../../api/apiUrl";
 import useApi from "../../hooks/useApi";
 import { Products } from "../Types/products.d";
+import { useCartStore } from "../../Store/cartStore";
 
 function SpecificProduct() {
   const { id } = useParams<{ id: string }>();
+
+  const { addToCart } = useCartStore();
 
   const {
     data: products,
@@ -49,6 +52,12 @@ function SpecificProduct() {
             <strong>Tags:</strong>{" "}
             {products.tags?.length > 0 ? products.tags.join(", ") : "N/A"}
           </p>
+          <button
+            onClick={() => addToCart(products)}
+            className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950"
+          >
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
