@@ -22,7 +22,7 @@ const CheckoutForm = () => {
       lastName: yup
         .string()
         .min(3, "Last name should have at least 3 characters")
-        .max(10, "Last name should have at most 10 characters")
+        .max(15, "Last name should have at most 15 characters")
         .required("Last name is required"),
       email: yup
         .string()
