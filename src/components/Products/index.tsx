@@ -24,7 +24,7 @@ const ProductCard = ({ products }: { products: Products }) => {
 
       <div className="mt-auto">
         <div className="flex justify-between items-center">
-          <p className="font-bold text-lg text-green-700">
+          <p className="font-bold text-lg text-emerald-600">
             {products.discountedPrice.toFixed(2)} NOK
           </p>
         </div>
@@ -38,7 +38,7 @@ const ProductCard = ({ products }: { products: Products }) => {
           </Link>
           <button
             onClick={() => addToCart(products)}
-            className="w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950"
+            className="w-1/2 bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950"
           >
             Add to cart
           </button>
