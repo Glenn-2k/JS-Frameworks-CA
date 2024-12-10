@@ -10,7 +10,7 @@ const ProductCard = ({ products }: { products: Products }) => {
   return (
     <div className="bg-white shadow-md flex flex-col h-full rounded-lg p-4 relative">
       {discount > 0 && (
-        <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs">
+        <div className="absolute top-2 right-2 bg-red-400 text-white px-2 py-1 rounded text-xs">
           Save {discount.toFixed(2)} NOK
         </div>
       )}
