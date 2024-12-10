@@ -20,7 +20,12 @@ const Landingpage = () => {
         <PacmanLoader />
       </div>
     );
-  if (isError) return <p>Failed to load products. Please try again later.</p>;
+  if (isError)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Failed to load products. Please try again later.</p>
+      </div>
+    );
 
   const filteredProducts = products?.filter(
     (product) =>
