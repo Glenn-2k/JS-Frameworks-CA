@@ -30,7 +30,7 @@ const Landingpage = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)} // Update state on input
         placeholder="Search products.."
-        className="border p-2 rounded mb-4 w-1/3"
+        className="border p-2 rounded mb-4 md:w-1/3"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredProducts?.map((product) => (
