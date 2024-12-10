@@ -3,6 +3,7 @@ import useApi from "../../hooks/useApi";
 import ProductCard from "../Products";
 import { Products } from "../Types/products.d";
 import { useState } from "react";
+import { PacmanLoader } from "react-spinners";
 
 const Landingpage = () => {
   const {
@@ -13,7 +14,12 @@ const Landingpage = () => {
 
   const [searchTerm, setSearchTerm] = useState("");
 
-  if (isLoading) return <p>Loading products...</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <PacmanLoader />
+      </div>
+    );
   if (isError) return <p>Failed to load products. Please try again later.</p>;
 
   const filteredProducts = products?.filter(
