@@ -34,7 +34,7 @@ const Nav = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <div className="relative flex items-center">
+    <div className="flex items-center">
       {/* Desktop Navigation */}
       <nav className="w-full flex justify-end px-4">
         <div className="hidden w-full md:flex justify-between items-center">
