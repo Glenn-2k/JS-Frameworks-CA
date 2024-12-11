@@ -70,7 +70,7 @@ const CheckoutForm = () => {
       <div className="mb-6">
         <h2 className="text-xl font-semibold mb-2 ">Your Cart</h2>
         {items.length === 0 ? (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center h-32">
             <p className="text-gray-500 text-center">Your cart is empty.</p>
           </div>
         ) : (
@@ -185,7 +185,7 @@ const CheckoutForm = () => {
           className={`w-full p-2 rounded ${
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+              : "bg-emerald-700 hover:bg-emerald-900 text-white"
           }`}
         >
           {isSubmitting ? "Processing..." : "Place Order"}
