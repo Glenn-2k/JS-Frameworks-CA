@@ -13,7 +13,7 @@ const schema = yup
     lastName: yup
       .string()
       .min(3, "Last name should have at least 3 characters")
-      .max(10, "Last name should have at most 10 characters")
+      .max(15, "Last name should have at most 15 characters")
       .required("Last name is required"),
     email: yup
       .string()
@@ -124,7 +124,7 @@ const ContactForm = () => {
           className={`w-full p-2 rounded ${
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
+              : "bg-emerald-700 hover:bg-emerald-800 text-white"
           }`}
         >
           {isSubmitting ? "Submitting..." : "Submit"}
