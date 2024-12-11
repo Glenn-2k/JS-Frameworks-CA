@@ -4,14 +4,12 @@ import { useForm } from "react-hook-form";
 import { useCartStore } from "../../Store/cartStore";
 
 const CheckoutForm = () => {
-  // Fetch cart items and total price from Zustand
   const { items, clearCart } = useCartStore();
   const total = items.reduce(
     (sum, item) => sum + item.discountedPrice * item.quantity,
     0
   );
 
-  // Validation Schema
   const schema = yup
     .object({
       firstName: yup
@@ -61,7 +59,6 @@ const CheckoutForm = () => {
 
     alert("Checkout complete!");
 
-    // Clear the cart after successful checkout
     clearCart();
     reset();
   };
@@ -70,11 +67,12 @@ const CheckoutForm = () => {
     <div className="container mx-auto max-w-md p-6 bg-white shadow-md rounded-lg">
       <h1 className="text-2xl font-bold mb-6 text-center">Checkout</h1>
 
-      {/* Cart Summary */}
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Your Cart</h2>
+        <h2 className="text-xl font-semibold mb-2 ">Your Cart</h2>
         {items.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <div className="flex justify-center items-center">
+            <p className="text-gray-500 text-center">Your cart is empty.</p>
+          </div>
         ) : (
           <>
             <ul className="mb-4 space-y-2">
