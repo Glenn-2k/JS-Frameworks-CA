@@ -37,9 +37,12 @@ const Cart = () => {
         {items.length === 0 ? (
           <div className="text-center text-gray-500">
             <p className="text-lg">Your cart is empty.</p>
-            <a href="/" className="text-blue-500 hover:underline mt-4 block">
-              Start shopping now!
-            </a>
+            <button
+              onClick={() => navigate("/")}
+              className="bg-gray-600 px-3 py-1 rounded text-white mt-4 hover:bg-gray-700"
+            >
+              Browse products
+            </button>
           </div>
         ) : (
           <>
