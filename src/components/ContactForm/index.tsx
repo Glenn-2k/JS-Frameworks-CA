@@ -43,10 +43,20 @@ const ContactForm = () => {
     resolver: yupResolver(schema),
   });
 
-  function onSubmit(data: formData) {
-    console.log(data);
-    alert("Your message has been sent!");
-    reset();
+  async function onSubmit(data: formData) {
+    try {
+      // Simulate a delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      console.log(data);
+      alert("Your message has been sent!");
+      reset();
+    } catch (error) {
+      console.error(error);
+      alert(
+        "An error occurred while sending your message. Please try again later."
+      );
+    }
   }
 
   return (
