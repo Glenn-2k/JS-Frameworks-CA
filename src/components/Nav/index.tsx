@@ -24,13 +24,6 @@ const NavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
       >
         Contact
       </NavLink>
-      <NavLink
-        className={({ isActive }) => getNavLinkClass(isActive)}
-        to="/cart"
-        onClick={closeMenu}
-      >
-        <CartIcon />
-      </NavLink>
     </>
   );
 };
@@ -41,23 +34,38 @@ const Nav = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <>
-      <nav className="w-1/3 flex justify-end px-4">
-        <div className="hidden w-full md:flex justify-between">
-          <NavLinks closeMenu={() => {}} />
+    <div className="relative flex items-center">
+      {/* Desktop Navigation */}
+      <nav className="w-full flex justify-end px-4">
+        <div className="hidden w-full md:flex justify-between items-center">
+          <NavLink to="/cart" className="mr-4">
+            <CartIcon />
+          </NavLink>
+          <div className="flex space-x-4">
+            <NavLinks closeMenu={() => {}} />
+          </div>
         </div>
-        <div className="md:hidden">
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center">
+          <NavLink to="/cart" className="mr-4">
+            <CartIcon />
+          </NavLink>
           <button onClick={toggleNavbar}>
-            {isOpen ? <FaTimes /> : <FaBars />}{" "}
+            {isOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </nav>
+
+      {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="flex basis-full flex-col w-full md:hidden items-center ">
-          <NavLinks closeMenu={closeMenu} />
+        <div className="absolute top-full left-0 w-full bg-gray-800 shadow-md py-4 md:hidden z-50">
+          <div className="flex flex-col items-center">
+            <NavLinks closeMenu={closeMenu} />
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
