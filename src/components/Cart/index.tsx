@@ -61,13 +61,13 @@ const Cart = () => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => decrementQuantity(product.id)}
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                      className="bg-rose-600 text-white px-3 py-1 rounded hover:bg-rose-800"
                     >
                       -
                     </button>
                     <button
                       onClick={() => incrementQuantity(product.id)}
-                      className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                      className="bg-emerald-700 text-white px-3 py-1 rounded hover:bg-emerald-900"
                     >
                       +
                     </button>
@@ -87,13 +87,13 @@ const Cart = () => {
             <div className="flex justify-between mt-6 space-x-4">
               <button
                 onClick={clearCart}
-                className="w-1/2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                className="w-1/2 bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-800"
               >
                 Clear Cart
               </button>
               <button
                 onClick={handleCheckout}
-                className="w-1/2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="w-1/2 bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-900"
               >
                 Proceed to Checkout
               </button>
