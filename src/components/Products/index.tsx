@@ -32,13 +32,13 @@ const ProductCard = ({ products }: { products: Products }) => {
         <div className="flex space-x-4 mt-2 justify-center">
           <Link
             to={`/products/${products.id}`}
-            className="w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 text-center"
+            className="w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 text-center transition-all ease-in duration-150"
           >
             View Product
           </Link>
           <button
             onClick={() => addToCart(products)}
-            className="w-1/2 bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950"
+            className="w-1/2 bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
           >
             Add to cart
           </button>
