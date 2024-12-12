@@ -54,7 +54,7 @@ function SpecificProduct() {
           </p>
           <button
             onClick={() => addToCart(products)}
-            className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950"
+            className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
           >
             Add to cart
           </button>
