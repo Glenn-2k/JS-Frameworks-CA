@@ -39,7 +39,7 @@ const Cart = () => {
             <p className="text-lg">Your cart is empty.</p>
             <button
               onClick={() => navigate("/")}
-              className="bg-gray-600 px-3 py-1 rounded text-white mt-4 hover:bg-gray-700"
+              className="bg-gray-600 px-3 py-1 rounded text-white mt-4 hover:bg-gray-800 transition-all ease-in duration-150"
             >
               Browse products
             </button>

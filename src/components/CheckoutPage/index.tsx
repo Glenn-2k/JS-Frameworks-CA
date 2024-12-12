@@ -185,7 +185,7 @@ const CheckoutForm = () => {
           className={`w-full p-2 rounded ${
             isSubmitting
               ? "bg-gray-400 cursor-not-allowed"
-              : "bg-emerald-700 hover:bg-emerald-900 text-white"
+              : "bg-emerald-700 hover:bg-emerald-900 text-white transition-all ease-in duration-150"
           }`}
         >
           {isSubmitting ? "Processing..." : "Place Order"}
