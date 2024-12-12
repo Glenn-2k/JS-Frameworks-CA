@@ -5,7 +5,7 @@ function CartIcon() {
   const { count } = useCartStore();
 
   return (
-    <div className="relative text-2xl cursor-pointer">
+    <div className="relative text-2xl cursor-pointer hover:animate-wiggle-more animate-twice animate-ease-out">
       <span className="sr-only">Cart</span>
       <FaShoppingCart />
       {count > 0 && (
