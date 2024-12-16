@@ -2,6 +2,7 @@ import { Products } from "../Types/products.d.tsx";
 import { useCartStore } from "../../Store/cartStore.tsx";
 import CartIcon from "../CartIcon/index.tsx";
 import { useNavigate } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
@@ -51,7 +52,7 @@ const ProductCard = ({ products }: { products: Products }) => {
               onClick={handleAddToCart}
               className=" xl:hidden bg-emerald-700 text-white px-4 py-2 rounded-lg z-10 hover:bg-green-950 transition-all ease-in duration-150 "
             >
-              <CartIcon />
+              <FaShoppingCart className="text-xl" />
             </div>
           </div>
         </div>
