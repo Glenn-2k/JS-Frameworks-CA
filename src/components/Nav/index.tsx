@@ -5,7 +5,9 @@ import CartIcon from "../CartIcon";
 
 const activeClassName = "text-gray-400 mb-4 md:mb-0";
 const getNavLinkClass = (isActive: boolean) =>
-  isActive ? `${activeClassName} mb-4 md:mb-0` : "mb-4 md:mb-0";
+  isActive
+    ? `${activeClassName} mb-4 md:mb-0 font-montserrat`
+    : "mb-4 md:mb-0 font-montserrat";
 
 const NavLinks = ({ closeMenu }: { closeMenu: () => void }) => {
   return (
