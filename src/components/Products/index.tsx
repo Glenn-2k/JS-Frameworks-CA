@@ -1,6 +1,8 @@
 import { Products } from "../Types/products.d.tsx";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../Store/cartStore.tsx";
+import Cart from "../Cart/index.tsx";
+import CartIcon from "../CartIcon/index.tsx";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
@@ -8,7 +10,10 @@ const ProductCard = ({ products }: { products: Products }) => {
   const { addToCart } = useCartStore();
 
   return (
-    <div className="bg-white shadow-md flex flex-col h-full rounded-lg p-4 relative">
+    <Link
+      to={`/products/${products.id}`}
+      className="bg-white shadow-md flex flex-col h-full rounded-lg p-4 relative"
+    >
       {discount > 0 && (
         <div className="absolute top-2 right-2 bg-red-400 text-white px-2 py-1 rounded text-xs">
           Save {discount.toFixed(2)} NOK
@@ -24,27 +29,26 @@ const ProductCard = ({ products }: { products: Products }) => {
 
       <div className="mt-auto">
         <div className="flex justify-between items-center">
-          <p className="font-bold text-lg text-emerald-600">
+          <p className="font-bold text-lg text-emerald-800">
             {products.discountedPrice.toFixed(2)} NOK
           </p>
-        </div>
-
-        <div className="flex space-x-4 mt-2 justify-center">
-          <Link
-            to={`/products/${products.id}`}
-            className="w-1/2 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 text-center transition-all ease-in duration-150"
-          >
-            View Product
-          </Link>
-          <button
-            onClick={() => addToCart(products)}
-            className="w-1/2 bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
-          >
-            Add to cart
-          </button>
+          <div className="flex mt-2 justify-end ">
+            <button
+              onClick={() => addToCart(products)}
+              className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
+            >
+              Add to cart
+            </button>
+            <div
+              onClick={() => addToCart(products)}
+              className=" xl:hidden bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
+            >
+              <CartIcon />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
