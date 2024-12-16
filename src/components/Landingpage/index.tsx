@@ -39,7 +39,7 @@ const Landingpage = () => {
       <input
         type="text"
         value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)} // Update state on input
+        onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search products.."
         className="border p-2 rounded mb-4 md:w-1/3"
       />
