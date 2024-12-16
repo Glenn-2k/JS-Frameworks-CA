@@ -1,17 +1,25 @@
 import { Products } from "../Types/products.d.tsx";
-import { Link } from "react-router-dom";
 import { useCartStore } from "../../Store/cartStore.tsx";
-import Cart from "../Cart/index.tsx";
 import CartIcon from "../CartIcon/index.tsx";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/products/${products.id}`);
+  };
 
   const { addToCart } = useCartStore();
+  const handleAddToCart = (e: React.SyntheticEvent) => {
+    e.stopPropagation();
+    addToCart(products);
+  };
 
   return (
-    <Link
-      to={`/products/${products.id}`}
+    <div
+      onClick={handleCardClick}
       className="bg-white shadow-md flex flex-col h-full rounded-lg p-4 relative"
     >
       {discount > 0 && (
@@ -34,21 +42,21 @@ const ProductCard = ({ products }: { products: Products }) => {
           </p>
           <div className="flex mt-2 justify-end ">
             <button
-              onClick={() => addToCart(products)}
-              className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
+              onClick={handleAddToCart}
+              className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded z-10 hover:bg-green-950 transition-all ease-in duration-150 "
             >
               Add to cart
             </button>
             <div
-              onClick={() => addToCart(products)}
-              className=" xl:hidden bg-emerald-700 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150 "
+              onClick={handleAddToCart}
+              className=" xl:hidden bg-emerald-700 text-white px-4 py-2 rounded z-10 hover:bg-green-950 transition-all ease-in duration-150 "
             >
               <CartIcon />
             </div>
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 
