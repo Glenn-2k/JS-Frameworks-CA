@@ -3,6 +3,7 @@ import { BASE_URL } from "../../api/apiUrl";
 import useApi from "../../hooks/useApi";
 import { Products } from "../Types/products.d";
 import { useCartStore } from "../../Store/cartStore";
+import ProductRating from "../ProductRating";
 
 function SpecificProduct() {
   const { id } = useParams<{ id: string }>();
@@ -46,7 +47,7 @@ function SpecificProduct() {
           )}
           <p className="text-gray-600 mb-4">{products.description}</p>
           <p className="text-gray-700">
-            <strong>Rating:</strong> {products.rating || "N/A"}
+            <strong>Rating:</strong> <ProductRating rating={products.rating} />
           </p>
           <p className="text-gray-700 mt-4">
             <strong>Tags:</strong>{" "}
