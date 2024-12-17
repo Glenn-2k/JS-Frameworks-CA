@@ -1,11 +1,13 @@
 import { Products } from "../Types/products.d.tsx";
 import { useCartStore } from "../../Store/cartStore.tsx";
 import { useNavigate } from "react-router-dom";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaCheck } from "react-icons/fa";
+import { useState } from "react";
 
 const ProductCard = ({ products }: { products: Products }) => {
   const discount = products.price - products.discountedPrice;
   const navigate = useNavigate();
+  const [isAdded, setIsAdded] = useState(false);
 
   const handleCardClick = () => {
     navigate(`/products/${products.id}`);
@@ -14,7 +16,13 @@ const ProductCard = ({ products }: { products: Products }) => {
   const { addToCart } = useCartStore();
   const handleAddToCart = (e: React.SyntheticEvent) => {
     e.stopPropagation();
-    addToCart(products);
+    if (!isAdded) {
+      addToCart(products);
+      setIsAdded(true);
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 1000);
+    }
   };
 
   return (
@@ -45,13 +53,29 @@ const ProductCard = ({ products }: { products: Products }) => {
               onClick={handleAddToCart}
               className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded-lg z-10 hover:bg-green-950 transition-all ease-in duration-150 "
             >
-              Add to cart
+              {" "}
+              {isAdded ? (
+                <>
+                  <FaCheck />
+                </>
+              ) : (
+                <>Add to cart</>
+              )}
             </button>
             <div
               onClick={handleAddToCart}
               className=" xl:hidden bg-emerald-700 text-white px-4 py-2 rounded-lg z-10 hover:bg-green-950 transition-all ease-in duration-150 "
             >
-              <FaShoppingCart className="text-xl" />
+              {" "}
+              {isAdded ? (
+                <>
+                  <FaCheck />
+                </>
+              ) : (
+                <>
+                  <FaShoppingCart className="text-xl" />
+                </>
+              )}
             </div>
           </div>
         </div>
