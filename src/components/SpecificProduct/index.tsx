@@ -23,13 +23,13 @@ function SpecificProduct() {
   return (
     <div className="container mx-auto p-8">
       {/* Grid layout for image and details */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-md rounded-lg p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-md rounded-xl p-6">
         {/* Product Image */}
         <div className="flex justify-center">
           <img
             src={products.image.url}
             alt={products.title}
-            className="w-full max-w-md h-auto object-cover rounded-lg"
+            className="w-full max-w-md h-auto object-cover rounded-xl"
           />
         </div>
 
