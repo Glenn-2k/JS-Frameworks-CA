@@ -4,6 +4,7 @@ import useApi from "../../hooks/useApi";
 import { Products } from "../Types/products.d";
 import { useCartStore } from "../../Store/cartStore";
 import ProductRating from "../ProductRating";
+import { FaShoppingCart } from "react-icons/fa";
 
 function SpecificProduct() {
   const { id } = useParams<{ id: string }>();
@@ -55,9 +56,15 @@ function SpecificProduct() {
           </p>
           <button
             onClick={() => addToCart(products)}
-            className="mt-4 w-1/2 bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
+            className="hidden xl:block mt-4  bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
           >
             Add to cart
+          </button>
+          <button
+            onClick={() => addToCart(products)}
+            className="xl:hidden mt-4  bg-green-900 text-white px-8 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
+          >
+            <FaShoppingCart className="text-xl" />
           </button>
         </div>
       </div>
