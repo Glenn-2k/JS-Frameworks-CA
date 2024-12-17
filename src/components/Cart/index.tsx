@@ -2,6 +2,7 @@ import { useCartStore } from "../../Store/cartStore";
 import { useNavigate } from "react-router-dom";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { FaRegSquareMinus, FaRegSquarePlus } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const {
@@ -11,6 +12,13 @@ const Cart = () => {
     removeFromCart,
     clearCart,
   } = useCartStore();
+
+  const handleClearCart = () => {
+    if (window.confirm("Are you sure you want to clear your cart?")) {
+      clearCart();
+      toast.success("Cart cleared successfully!");
+    }
+  };
 
   const navigate = useNavigate();
 
@@ -66,12 +74,14 @@ const Cart = () => {
                     <button
                       onClick={() => decrementQuantity(product.id)}
                       className="bg-rose-600 text-white px-3 py-1 rounded hover:bg-rose-800 transition-all ease-in duration-150"
+                      aria-label="Decrease quantity"
                     >
                       <FaRegSquareMinus className="text-xl" />
                     </button>
                     <button
                       onClick={() => incrementQuantity(product.id)}
                       className="bg-emerald-700 text-white px-3 py-1 rounded hover:bg-emerald-900 transition-all ease-in duration-150"
+                      aria-label="Increase quantity"
                     >
                       <FaRegSquarePlus className="text-xl" />
                     </button>
@@ -90,7 +100,7 @@ const Cart = () => {
 
             <div className="flex justify-between mt-6 space-x-4">
               <button
-                onClick={clearCart}
+                onClick={handleClearCart}
                 className="w-1/2 bg-rose-600 text-white px-4 py-2 rounded hover:bg-rose-800 transition-all ease-in duration-150"
               >
                 Clear Cart
