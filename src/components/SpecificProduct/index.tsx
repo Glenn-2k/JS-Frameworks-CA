@@ -4,12 +4,23 @@ import useApi from "../../hooks/useApi";
 import { Products } from "../Types/products.d";
 import { useCartStore } from "../../Store/cartStore";
 import ProductRating from "../ProductRating";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaCheck } from "react-icons/fa";
+import { useState } from "react";
 
 function SpecificProduct() {
   const { id } = useParams<{ id: string }>();
+  const [isAdded, setIsAdded] = useState(false);
 
   const { addToCart } = useCartStore();
+  const handleAddToCart = () => {
+    if (!isAdded && products) {
+      addToCart(products);
+      setIsAdded(true);
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 1000);
+    }
+  };
 
   const {
     data: products,
@@ -55,16 +66,32 @@ function SpecificProduct() {
             {products.tags?.length > 0 ? products.tags.join(", ") : "N/A"}
           </p>
           <button
-            onClick={() => addToCart(products)}
+            onClick={handleAddToCart}
             className="hidden xl:block mt-4  bg-green-900 text-white px-4 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
           >
-            Add to cart
+            {" "}
+            {isAdded ? (
+              <>
+                <FaCheck />
+              </>
+            ) : (
+              <>Add to cart</>
+            )}
           </button>
           <button
-            onClick={() => addToCart(products)}
+            onClick={handleAddToCart}
             className="xl:hidden mt-4  bg-green-900 text-white px-8 py-2 rounded hover:bg-green-950 transition-all ease-in duration-150"
           >
-            <FaShoppingCart className="text-xl" />
+            {" "}
+            {isAdded ? (
+              <>
+                <FaCheck />
+              </>
+            ) : (
+              <>
+                <FaShoppingCart className="text-xl" />
+              </>
+            )}
           </button>
         </div>
       </div>
