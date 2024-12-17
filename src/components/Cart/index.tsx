@@ -1,6 +1,7 @@
 import { useCartStore } from "../../Store/cartStore";
 import { useNavigate } from "react-router-dom";
 import { TrashIcon } from "@heroicons/react/24/outline";
+import { FaRegSquareMinus, FaRegSquarePlus } from "react-icons/fa6";
 
 const Cart = () => {
   const {
@@ -66,13 +67,13 @@ const Cart = () => {
                       onClick={() => decrementQuantity(product.id)}
                       className="bg-rose-600 text-white px-3 py-1 rounded hover:bg-rose-800 transition-all ease-in duration-150"
                     >
-                      -
+                      <FaRegSquareMinus className="text-xl" />
                     </button>
                     <button
                       onClick={() => incrementQuantity(product.id)}
                       className="bg-emerald-700 text-white px-3 py-1 rounded hover:bg-emerald-900 transition-all ease-in duration-150"
                     >
-                      +
+                      <FaRegSquarePlus className="text-xl" />
                     </button>
                     <button onClick={() => removeFromCart(product.id)}>
                       <TrashIcon className="size-5 text-gray-900" />
