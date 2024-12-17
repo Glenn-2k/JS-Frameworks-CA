@@ -53,8 +53,20 @@ const Nav = () => {
           <NavLink to="/cart" className="mr-4">
             <CartIcon />
           </NavLink>
-          <button onClick={toggleNavbar}>
-            {isOpen ? <FaTimes /> : <FaBars />}
+          <button
+            onClick={toggleNavbar}
+            className="text-xl relative flex justify-center items-center w-8 h-8"
+          >
+            <FaTimes
+              className={`absolute transition-opacity transform ${
+                isOpen ? "opacity-100 rotate-0" : "opacity-0 rotate-45"
+              } duration-300`}
+            />
+            <FaBars
+              className={`absolute transition-opacity transform ${
+                isOpen ? "opacity-0 -rotate-45" : "opacity-100 rotate-0"
+              } duration-300`}
+            />
           </button>
         </div>
       </nav>
