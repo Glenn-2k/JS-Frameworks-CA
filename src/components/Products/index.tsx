@@ -51,7 +51,7 @@ const ProductCard = ({ products }: { products: Products }) => {
           <div className="flex mt-2 justify-end ">
             <button
               onClick={handleAddToCart}
-              className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded-lg z-10 hover:bg-green-950 transition-all ease-in duration-150 "
+              className="hidden xl:block bg-emerald-700 text-white px-4 py-2 rounded-lg z-10 mr-4 hover:bg-green-950 transition-all ease-in duration-150 "
             >
               {" "}
               {isAdded ? (
