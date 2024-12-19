@@ -7,6 +7,7 @@ import ContactForm from "./components/ContactForm";
 import Cart from "./components/Cart";
 import CheckoutForm from "./components/CheckoutPage";
 import { ToastContainer } from "react-toastify";
+import CheckoutSuccess from "./components/CheckoutSuccess";
 
 function RouteNotFound() {
   return <div>Page not found</div>;
@@ -22,6 +23,7 @@ function App() {
           <Route path="contact" element={<ContactForm />} />
           <Route path="cart" element={<Cart />} />
           <Route path="checkout" element={<CheckoutForm />} />
+          <Route path="checkoutsuccess" element={<CheckoutSuccess />} />
           <Route path="*" element={<RouteNotFound />} />
         </Route>
       </Routes>

@@ -2,6 +2,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useCartStore } from "../../Store/cartStore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutForm = () => {
   const { items, clearCart } = useCartStore();
@@ -9,6 +11,8 @@ const CheckoutForm = () => {
     (sum, item) => sum + item.discountedPrice * item.quantity,
     0
   );
+
+  const navigate = useNavigate();
 
   const schema = yup
     .object({
@@ -47,7 +51,6 @@ const CheckoutForm = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset,
   } = useForm<CheckoutFormData>({
     resolver: yupResolver(schema),
   });
@@ -60,7 +63,8 @@ const CheckoutForm = () => {
     alert("Checkout complete!");
 
     clearCart();
-    reset();
+    navigate("/checkoutsuccess");
+    toast.success("Checkout complete!");
   };
 
   return (
