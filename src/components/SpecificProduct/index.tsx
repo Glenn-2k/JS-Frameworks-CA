@@ -37,9 +37,7 @@ function SpecificProduct() {
 
   return (
     <div className="container mx-auto p-8">
-      {/* Grid layout for image and details */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white shadow-md rounded-xl p-6">
-        {/* Product Image */}
         <div className="flex justify-center">
           <img
             src={products.image.url}
@@ -48,7 +46,6 @@ function SpecificProduct() {
           />
         </div>
 
-        {/* Product Details */}
         <div>
           <h1 className="text-3xl font-bold mb-4">{products.title}</h1>
           <p className="text-xl font-semibold text-gray-700 mb-2">
