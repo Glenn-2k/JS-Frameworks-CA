@@ -28,6 +28,8 @@ function SpecificProduct() {
     isError,
   } = useApi<Products>(`${BASE_URL}/${id}`);
 
+  const moneySaved = products ? products.price - products.discountedPrice : 0;
+
   if (!id) return <p>Product ID is missing!</p>;
   if (isLoading) return <p>Loading product...</p>;
   if (isError) return <p>Failed to load product. Please try again later.</p>;
@@ -54,7 +56,7 @@ function SpecificProduct() {
           </p>
           {products.price > products.discountedPrice && (
             <p className="text-sm text-red-500 mb-4">
-              Save {products.price - products.discountedPrice} NOK!
+              Save {moneySaved.toFixed(2)} NOK!
             </p>
           )}
           <p className="text-gray-600 mb-4">{products.description}</p>
