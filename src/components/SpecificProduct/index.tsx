@@ -52,7 +52,7 @@ function SpecificProduct() {
             Price: {products.discountedPrice.toFixed(2)} NOK
           </p>
           {products.price > products.discountedPrice && (
-            <p className="text-sm text-red-500 mb-4">
+            <p className="text-sm text-red-800 mb-4">
               Save {moneySaved.toFixed(2)} NOK!
             </p>
           )}
