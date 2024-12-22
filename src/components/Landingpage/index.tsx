@@ -36,9 +36,13 @@ const Landingpage = () => {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-4">Our Products</h1>
+      <label htmlFor="search" className="sr-only">
+        Search Products
+      </label>
       <input
         type="text"
         value={searchTerm}
+        id="search"
         onChange={(e) => setSearchTerm(e.target.value)}
         placeholder="Search products.."
         className="border p-2 rounded mb-4 md:w-1/3"
